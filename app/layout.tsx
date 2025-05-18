@@ -12,6 +12,32 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Developer Portfolio',
   description: 'Personal portfolio showcasing my work as a developer',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://krushant.vercel.app/',
+    title: 'Krushant Wagh - Developer Portfolio',
+    description: 'Full-stack developer specializing in modern web technologies',
+    siteName: 'Krushant Wagh',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Krushant Wagh Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Krushant Wagh - Developer Portfolio',
+    description: 'Full-stack developer specializing in modern web technologies',
+    images: ['/logo.png'],
+  },
 };
 
 export default function RootLayout({
