@@ -44,10 +44,30 @@ export default function ContactSection() {
     },
   });
 
-  function onSubmit(values) {
-    console.log(values);
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    form.reset();
+  async function onSubmit(values) {
+    try {
+      // Send email data to your email address
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...values,
+          recipient: 'krushantw@gmail.com', // Your email address
+        }),
+      });
+      
+      if (response.ok) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        form.reset();
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again later.");
+    }
   }
 
   return (

@@ -4,7 +4,7 @@ import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { ArrowDown, FileCode2, Github, Linkedin, Mail, Globe } from 'lucide-react';
+import { ArrowDown, FileCode2, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -94,11 +94,11 @@ export default function HeroSection() {
               <a href="https://linkedin.com/in/krushantw" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="mailto:krushantw@gmail.com" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
+              <a href="mailto:krushantw@gmail.com" className="text-foreground/70 hover:text-primary transition-colors">
                 <Mail className="h-6 w-6" />
               </a>
-              <a href="https://profile-mu-silk.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
-                <Globe className="h-6 w-6" />
+              <a href="https://x.com/KrushantW32342" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
+                <Twitter className="h-6 w-6" />
               </a>
             </div>
           </motion.div>

@@ -47,7 +47,15 @@ export const skills = [
   },
 ];
 
-export const projects = [
+export const mainProjects = [
+  {
+    title: "AudioOrbit - Synchronized Music Experience",
+    description: "A collaborative platform that brings people together through shared music experiences, allowing users to create sessions, invite friends, and enjoy synchronized listening.",
+    stack: ["Next.js", "React", "Tailwind CSS", "Web Audio API", "WebSockets"],
+    image: "/projects/audioorbit.png",
+    demoUrl: "https://audi-orbit.vercel.app/",
+    codeUrl: "https://github.com/Krushan12/AudiOrbit",
+  },
   {
     title: "Phoge - AI Image SaaS Platform",
     description: "A secure, full-featured SaaS platform for AI image editing with Stripe payments & role-based access (Clerk).",
@@ -72,6 +80,9 @@ export const projects = [
     demoUrl: "https://krushant.vercel.app/",
     codeUrl: "https://github.com/Krushan12/Krushant",
   },
+];
+
+export const funProjects = [
   {
     title: "Kanban Board Task Management",
     description: "Responsive task management system with intuitive drag-and-drop functionality, task categorization, and expandable sidebar and modal interfaces.",
@@ -108,7 +119,7 @@ export const socialLinks = [
   { name: "GitHub", url: "https://github.com/Krushan12", icon: "Github" },
   { name: "LinkedIn", url: "https://linkedin.com/in/krushantw", icon: "Linkedin" },
   { name: "Email", url: "mailto:krushantw@gmail.com", icon: "Mail" },
-  { name: "Portfolio", url: "https://profile-mu-silk.vercel.app/", icon: "Globe" },
+  { name: "Twitter", url: "https://x.com/KrushantW32342", icon: "Twitter" },
 ];
 
 export const codeSnippets = {

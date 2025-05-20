@@ -1,14 +1,15 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { projects } from './data';
+import { mainProjects, funProjects } from './data';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Code2 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const ProjectCard = ({ project, index }) => {
   return (
@@ -61,6 +62,8 @@ const ProjectCard = ({ project, index }) => {
 };
 
 export default function ProjectsSection() {
+  const [activeTab, setActiveTab] = useState("projects");
+
   return (
     <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-4 md:px-6">
@@ -78,15 +81,49 @@ export default function ProjectsSection() {
               <Separator className="w-20 bg-primary" />
             </div>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              A selection of my recent work and personal projects
+              A selection of my work and creative projects
             </p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
+        <div className="flex flex-col items-center mb-10">
+          <Tabs 
+            defaultValue="projects" 
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="w-full"
+          >
+            <div className="flex justify-center mb-8">
+              <TabsList className="grid grid-cols-2 w-full max-w-md">
+                <TabsTrigger value="projects">Professional Projects</TabsTrigger>
+                <TabsTrigger value="fun">Fun Projects</TabsTrigger>
+              </TabsList>
+            </div>
+            
+            <TabsContent value="projects" className="w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {mainProjects.map((project, index) => (
+                  <ProjectCard 
+                    key={`main-${index}`} 
+                    project={project} 
+                    index={index} 
+                  />
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="fun" className="w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {funProjects.map((project, index) => (
+                  <ProjectCard 
+                    key={`fun-${index}`} 
+                    project={project} 
+                    index={index} 
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
 
         <motion.div
@@ -97,7 +134,7 @@ export default function ProjectsSection() {
           className="mt-16 text-center"
         >
           <Button size="lg" asChild>
-            <a href="https://github.com" target="_blank" rel="noreferrer">
+            <a href="https://github.com/Krushan12" target="_blank" rel="noreferrer">
               <Github className="h-5 w-5 mr-2" />
               View More on GitHub
             </a>
