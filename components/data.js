@@ -117,8 +117,8 @@ export const about = {
 
 export const socialLinks = [
   { name: "GitHub", url: "https://github.com/Krushan12", icon: "Github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/krushantw", icon: "Linkedin" },
-  { name: "Email", url: "mailto:krushantw@gmail.com", icon: "Mail" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/krushant-wagh-703688228", icon: "Linkedin" },
+  
   { name: "Twitter", url: "https://x.com/KrushantW32342", icon: "Twitter" },
 ];
 

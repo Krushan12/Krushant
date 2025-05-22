@@ -27,6 +27,7 @@ const ProjectCard = ({ project, index }) => {
             fill
             style={{ objectFit: 'cover' }}
             className="group-hover:scale-110 transition-transform duration-500"
+            priority={index === 0}
           />
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="flex space-x-4">
@@ -95,7 +96,7 @@ export default function ProjectsSection() {
           >
             <div className="flex justify-center mb-8">
               <TabsList className="grid grid-cols-2 w-full max-w-md">
-                <TabsTrigger value="projects">Professional Projects</TabsTrigger>
+                <TabsTrigger value="projects">Projects</TabsTrigger>
                 <TabsTrigger value="fun">Fun Projects</TabsTrigger>
               </TabsList>
             </div>

@@ -1,7 +1,9 @@
+// Simple contact form API route that logs the message
+
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, email, message, recipient } = body;
+    const { name, email, message } = body;
     
     // Validate the input
     if (!name || !email || !message) {
@@ -11,29 +13,25 @@ export async function POST(request) {
       );
     }
     
-    // Here you would typically integrate with an email service like Nodemailer, SendGrid, etc.
-    // For example with EmailJS or similar service
+    // Log the form submission (this would be sent to your email in production)
+    console.log('Contact form submission:');
+    console.log('From:', name, '(', email, ')');
+    console.log('Message:', message);
     
-    // For now, we'll log the data and return a success response
-    console.log('Contact form submission:', {
-      name,
-      email,
-      message,
-      recipient: recipient || 'krushantw@gmail.com', // Default recipient
-    });
-    
-    // In a real implementation, you would send the email here
-    // Example: await sendEmail({ name, email, message, recipient });
+    // In a real production environment, you would send this data to your email
+    // For now, we'll just return a success response
     
     return new Response(
-      JSON.stringify({ success: true, message: 'Message received' }),
+      JSON.stringify({
+        success: true,
+        message: 'Message received! Check the server logs to see the message content.'
+      }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
-    
   } catch (error) {
     console.error('Contact API error:', error);
     return new Response(
-      JSON.stringify({ error: 'Failed to process request' }),
+      JSON.stringify({ error: 'Failed to process message. Please try again later.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

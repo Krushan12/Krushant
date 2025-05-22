@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { socialLinks } from './data';
 import { motion } from 'framer-motion';
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,6 +21,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import * as LucideIcons from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -29,12 +30,15 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email.",
   }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+  message: z.string().min(1, {
+    message: "Message is required.",
   }),
 });
 
 export default function ContactSection() {
+  const formRef = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,28 +49,63 @@ export default function ContactSection() {
   });
 
   async function onSubmit(values) {
+    // Show loading state
+    setIsSubmitting(true);
+    const toastId = toast.loading('Sending message...');
+    
     try {
-      // Send email data to your email address
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...values,
-          recipient: 'krushantw@gmail.com', // Your email address
-        }),
-      });
+      // Initialize EmailJS with your public key
+      emailjs.init('3D14b5nGwxtiXXbiZ');
       
-      if (response.ok) {
-        toast.success("Message sent successfully! I'll get back to you soon.");
+      // Log the form values for debugging
+      console.log('Form values:', values);
+      
+      // Use the send method instead of sendForm to avoid Gmail API authentication issues
+      const templateParams = {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+        to_name: 'Krushant',
+        reply_to: values.email
+      };
+      
+      const response = await emailjs.send(
+        'service_fttrarr', // Your service ID
+        'template_7c41w1k', // Your template ID
+        templateParams,     // Template parameters
+        '3D14b5nGwxtiXXbiZ' // Your public key
+      );
+      
+      console.log('EmailJS response:', response);
+      
+      if (response.status === 200) {
+        toast.success("Message sent successfully! I'll get back to you soon.", { 
+          id: toastId,
+          duration: 5000
+        });
         form.reset();
       } else {
-        toast.error("Failed to send message. Please try again.");
+        toast.error("Failed to send message. Please try again.", { 
+          id: toastId,
+          duration: 5000
+        });
       }
     } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong. Please try again later.");
+      console.error('Form submission error:', error);
+      // Log more detailed error information
+      if (error.text) {
+        console.error('Error details:', error.text);
+      }
+      if (error.status) {
+        console.error('Error status:', error.status);
+      }
+      
+      toast.error(`Failed to send message: ${error.text || 'Please try again later.'}`, { 
+        id: toastId,
+        duration: 5000
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -102,7 +141,7 @@ export default function ContactSection() {
             <Card>
               <CardContent className="pt-6">
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" id="contact-form">
                     <FormField
                       control={form.control}
                       name="name"
@@ -110,7 +149,7 @@ export default function ContactSection() {
                         <FormItem>
                           <FormLabel>Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Krushant Wagh" {...field} />
+                            <Input name="name" placeholder="Krushant Wagh" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -123,7 +162,7 @@ export default function ContactSection() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="krushantw@gmail.com" {...field} />
+                            <Input name="email" placeholder="krushantw@gmail.com" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -137,6 +176,7 @@ export default function ContactSection() {
                           <FormLabel>Message</FormLabel>
                           <FormControl>
                             <Textarea 
+                              name="message"
                               placeholder="I'd like to discuss a project..." 
                               className="min-h-32"
                               {...field} 
@@ -146,8 +186,8 @@ export default function ContactSection() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" className="w-full">
-                      Send Message
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </Form>
@@ -182,7 +222,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold">Email</h4>
-                    <p className="text-muted-foreground">krushantw@gmail.com</p>
+                    <a href="mailto:krushantw@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">krushantw@gmail.com</a>
                   </div>
                 </div>
                 
@@ -192,7 +232,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold">Phone</h4>
-                    <p className="text-muted-foreground">+91 8767821091</p>
+                    <a href="tel:+918767821091" className="text-muted-foreground hover:text-primary transition-colors">+91 8767821091</a>
                   </div>
                 </div>
               </div>
@@ -207,7 +247,7 @@ export default function ContactSection() {
                     <a 
                       key={link.name}
                       href={link.url}
-                      target="_blank"
+                      target={link.name === "Email" ? "" : "_blank"}
                       rel="noreferrer"
                       className="bg-muted hover:bg-muted/80 p-3 rounded-full transition-colors"
                       aria-label={link.name}

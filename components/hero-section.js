@@ -91,12 +91,10 @@ export default function HeroSection() {
               <a href="https://github.com/Krushan12" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
                 <Github className="h-6 w-6" />
               </a>
-              <a href="https://linkedin.com/in/krushantw" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
+              <a href="https://linkedin.com/in/krushant-wagh-703688228" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="mailto:krushantw@gmail.com" className="text-foreground/70 hover:text-primary transition-colors">
-                <Mail className="h-6 w-6" />
-              </a>
+              
               <a href="https://x.com/KrushantW32342" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors">
                 <Twitter className="h-6 w-6" />
               </a>
@@ -131,7 +129,6 @@ export default function HeroSection() {
                     &nbsp;&nbsp;&#125;<br /><br />
                     &nbsp;&nbsp;<span className="code-function">code</span>() &#123;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;<span className="code-variable">console</span>.<span className="code-function">log</span>(<span className="code-string">"✨ Creating something amazing..."</span>);<br />
-                    )
                     &nbsp;&nbsp;&nbsp;&nbsp;<span className="code-keyword">return</span> <span className="code-string">"Clean, efficient, and maintainable solutions"</span>;<br />
                     &nbsp;&nbsp;&#125;<br /><br />
                     &nbsp;&nbsp;<span className="code-function">solveProblems</span>() &#123;<br />

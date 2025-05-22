@@ -84,7 +84,7 @@ A modern, code-themed portfolio website built with Next.js and Tailwind CSS. Thi
 ## 🔗 Connect With Me
 
 - [GitHub](https://github.com/Krushan12)
-- [LinkedIn](https://linkedin.com/in/krushantw)
+- [LinkedIn](https://linkedin.com/in/krushant-wagh-703688228)
 - [Email](mailto:krushantw@gmail.com)
 
 ## 📄 License
