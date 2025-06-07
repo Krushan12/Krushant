@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title: 'Developer Portfolio',
   description: 'Personal portfolio showcasing my work as a developer',
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   openGraph: {
     type: 'website',

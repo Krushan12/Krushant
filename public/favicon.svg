@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Vibrant gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Base hexagon -->
+  <path d="M50 5
+           L85 25
+           L85 75
+           L50 95
+           L15 75
+           L15 25 Z" 
+        fill="url(#bgGradient)"
+        stroke="#ffffff"
+        stroke-width="2"/>
+
+  <!-- Letters "KR" with bold styling -->
+  <text x="50" y="65"
+        font-family="Arial Black, Arial-BoldMT, sans-serif"
+        font-weight="900"
+        font-size="38"
+        fill="white"
+        text-anchor="middle"
+        filter="url(#glow)">
+    KR
+  </text>
+</svg>
+</svg>
