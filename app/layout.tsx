@@ -14,10 +14,11 @@ export const metadata: Metadata = {
   description: 'Personal portfolio showcasing my work as a developer',
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
     ],
     shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    apple: '/favicon.svg'
   },
   openGraph: {
     type: 'website',
@@ -50,7 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${jetBrainsMono.variable} font-mono`}>
+      <body className={`${jetBrainsMono.variable} font-mono`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
