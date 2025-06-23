@@ -1,6 +1,6 @@
 export const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
+  { label: "Experience", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -65,6 +65,30 @@ export const mainProjects = [
     codeUrl: "https://github.com/Krushan12/phoge",
   },
   {
+    title: "Task Board - Real-Time Task Management",
+    description: "Real-time task management app with drag-and-drop UI, Firebase authentication, and glassmorphism styling.",
+    stack: ["Next.js 13", "Firebase", "Tailwind CSS", "DnD Kit", "Geist"],
+    image: "/projects/taskboard.png",
+    demoUrl: "https://arakoo-ai.vercel.app/",
+    codeUrl: "https://github.com/Krushan12/reactjs-sample-0225",
+  },
+  {
+    title: "EV Charger Manager",
+    description: "A full-stack app for managing EV charging stations with real-time map visualization, JWT auth, and filtering.",
+    stack: ["Vue 3", "Node.js", "Express", "MongoDB", "JWT", "Leaflet"],
+    image: "/projects/charger.png",
+    demoUrl: "https://charging-station-app.vercel.app",
+    codeUrl: "https://github.com/Krushan12/charging-station-app", 
+  },
+  {
+    title: "Mutual Fund Analyzer",
+    description: "A dashboard to track and analyze mutual fund performance using XIRR with secure backend and interactive charts.",
+    stack: ["React 19", "Node.js", "PostgreSQL", "Tailwind", "Chart.js", "Sequelize"],
+    image: "/projects/mutualfund.png",
+    demoUrl: "https://mutual-fund-analyzer.vercel.app/",
+    codeUrl: "https://github.com/Krushan12/mutual-fund-analyzer",
+  },
+  {
     title: "Vibely - Social Media Application",
     description: "A complete social media platform with CRUD operations, user authentication, post creation with image support, and interactive UI.",
     stack: ["React", "Express", "Node.js", "MongoDB", "Tailwind CSS"],
@@ -79,7 +103,7 @@ export const mainProjects = [
     image: "/projects/webprofile.png",
     demoUrl: "https://krushant.vercel.app/",
     codeUrl: "https://github.com/Krushan12/Krushant",
-  },
+  }
 ];
 
 export const funProjects = [
@@ -91,20 +115,48 @@ export const funProjects = [
     demoUrl: "https://kanban-board-teal-pi.vercel.app/",
     codeUrl: "https://github.com/Krushan12/Kanban-board",
   },
+  ,
+  {
+    title: "Lexicon - Wordle Style Game",
+    description: "A fun 5-letter word guessing game with color-coded feedback. Guess the word in 6 tries or less with visual hints like green, yellow, and gray for positions.",
+    stack: ["React", "CSS", "JavaScript"],
+    image: "/projects/lexicon.png",
+    demoUrl: "https://lexicon-nine.vercel.app/", 
+    codeUrl: "https://github.com/Krushan12/Wordle", 
+  }
 ];
 
 export const experiences = [
   {
-    title: "Software Development Intern",
-    company: "GEMA Technology Private Limited",
-    period: "May - July 2024",
-    description: "Developed and implemented new features for educational technology platforms using modern web technologies. Collaborated with cross-functional teams to design and optimize user interfaces. Contributed to backend API development and database optimization. Participated in agile development cycles and code reviews.",
+    title: 'Full Stack Developer Intern',
+    company: 'Rainbow Money (Fintech Startup)',
+    period: 'June 2025 – Present',
+    points: [
+      'Built Mutual Fund Portfolio Analytics Platform with React/Express',
+      'Developed CAMS PDF parser converting data to structured JSON',
+      'Created interactive data visualizations using Recharts',
+      'Implemented PAN-based portfolio fetching system',
+      'Collaborated on MVP delivery for investment analytics'
+    ]
+  },
+  {
+    title: 'Software Development Intern',
+    company: 'GEMA Technology Pvt. Ltd.',
+    period: 'May – July 2024',
+    points: [
+      'Collaborated with cross-functional teams to design and develop e-commerce platform',
+      'Implemented 5+ core features boosting UI responsiveness by 30%',
+      'Optimized API endpoints reducing latency by 25%',
+      'Conducted code reviews and agile development processes'
+    ]
   },
   {
     title: "B.Tech in Materials Engineering",
     company: "Indian Institute of Technology, Gandhinagar",
     period: "November 2021 - June 2025",
-    description: "Currently pursuing a Bachelor's degree in Materials Engineering at IIT Gandhinagar.",
+    points: [
+      "Completed Bachelor's degree in Materials Engineering with focus on Full Stack Development."
+    ]
   }
 ];
 
