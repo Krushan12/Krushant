@@ -70,7 +70,7 @@ export default function HeroSection() {
                 className="group"
                 asChild
               >
-                <a href="https://drive.google.com/file/d/1sDiaPXQentPlZ3pyppcson5J3K0A6-dp/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1AsPY6f9Fik__t5-6c0ztcVBNpvYb59-P/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   Download CV
                 </a>
               </Button>
