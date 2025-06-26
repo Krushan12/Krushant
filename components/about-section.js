@@ -3,7 +3,6 @@
 import React from 'react';
 import { experiences } from './data';
 import { motion } from 'framer-motion';
-import { TabsContent } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
 export default function AboutSection() {
